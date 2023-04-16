@@ -1,0 +1,19 @@
+{
+  "name": "securepass",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+
+  },
+  "dependencies": {
+    "autoprefixer": "10.4.14",
+    "ethers": "^5.7.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "web3modal": "^1.9.12"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^2.0.2",
+    "hardhat": "^2.13.1"
+  }
+}
