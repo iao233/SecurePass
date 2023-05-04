@@ -2,10 +2,12 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { SecureAppContext } from "../../context/SecureAppContext";
 
 const RegisterModal = ({ show, setShow }) => {
   const [registerInput, setRegisterInput] = useState({});
+  const { createAccount } = useContext(SecureAppContext);
 
   const registerInputChangeHandler = (event) => {
     setRegisterInput((prev) => {
@@ -15,9 +17,16 @@ const RegisterModal = ({ show, setShow }) => {
       };
     });
   };
-  useEffect(() => {
-    console.log(registerInput);
-  }, [registerInput]);
+
+  const register = () => {
+    createAccount(
+      registerInput.email,
+      register.firstName + " " + register.lastName,
+      register.password
+    ).then((response) => {
+      window.location.reload()
+    })
+  };
 
   const [showPassword, setShowPassword] = useState(false);
   function toggleShowPassword() {
@@ -81,7 +90,7 @@ const RegisterModal = ({ show, setShow }) => {
         <Button variant="secondary" onClick={() => setShow(false)}>
           Close
         </Button>
-        <Button variant="primary" onClick={() => setShow(false)}>
+        <Button variant="primary" onClick={register}>
           Save Changes
         </Button>
       </Modal.Footer>

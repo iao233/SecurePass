@@ -1,122 +1,120 @@
-const secureAppJSON = {
-  abi: [
+// import securePassJSON from "./SecurePass.json";
+
+export const SecurePassAddress = "0xa513E6E4b8f2a923D98304ec87F64353C4D5C853";
+
+export const SecurePassABI = [
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: "string",
-          name: "topic",
-          type: "string",
+          "internalType": "string",
+          "name": "topic",
+          "type": "string"
         },
         {
-          internalType: "string",
-          name: "username",
-          type: "string",
+          "internalType": "string",
+          "name": "username",
+          "type": "string"
         },
         {
-          internalType: "string",
-          name: "passwordVal",
-          type: "string",
-        },
+          "internalType": "string",
+          "name": "passwordVal",
+          "type": "string"
+        }
       ],
-      name: "addPassword",
-      outputs: [],
-      stateMutability: "nonpayable",
-      type: "function",
+      "name": "addPassword",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: "address",
-          name: "pubkey",
-          type: "address",
-        },
+          "internalType": "address",
+          "name": "pubkey",
+          "type": "address"
+        }
       ],
-      name: "checkUserExists",
-      outputs: [
+      "name": "checkUserExists",
+      "outputs": [
         {
-          internalType: "bool",
-          name: "",
-          type: "bool",
-        },
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: "string",
-          name: "email",
-          type: "string",
+          "internalType": "string",
+          "name": "email",
+          "type": "string"
         },
         {
-          internalType: "string",
-          name: "name",
-          type: "string",
+          "internalType": "string",
+          "name": "name",
+          "type": "string"
         },
         {
-          internalType: "string",
-          name: "securepassword",
-          type: "string",
-        },
+          "internalType": "string",
+          "name": "securepassword",
+          "type": "string"
+        }
       ],
-      name: "createAccount",
-      outputs: [],
-      stateMutability: "nonpayable",
-      type: "function",
+      "name": "createAccount",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
     },
     {
-      inputs: [],
-      name: "getMyPasswords",
-      outputs: [
+      "inputs": [],
+      "name": "getMyPasswords",
+      "outputs": [
         {
-          components: [
+          "components": [
             {
-              internalType: "string",
-              name: "topic",
-              type: "string",
+              "internalType": "string",
+              "name": "topic",
+              "type": "string"
             },
             {
-              internalType: "string",
-              name: "username",
-              type: "string",
+              "internalType": "string",
+              "name": "username",
+              "type": "string"
             },
             {
-              internalType: "string",
-              name: "passwordVal",
-              type: "string",
-            },
+              "internalType": "string",
+              "name": "passwordVal",
+              "type": "string"
+            }
           ],
-          internalType: "struct SecurePass.password[]",
-          name: "",
-          type: "tuple[]",
-        },
+          "internalType": "struct SecurePass.password[]",
+          "name": "",
+          "type": "tuple[]"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: "address",
-          name: "pubkey",
-          type: "address",
-        },
+          "internalType": "address",
+          "name": "pubkey",
+          "type": "address"
+        }
       ],
-      name: "getUsername",
-      outputs: [
+      "name": "getUsername",
+      "outputs": [
         {
-          internalType: "string",
-          name: "",
-          type: "string",
-        },
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
       ],
-      stateMutability: "view",
-      type: "function",
-    },
-  ],
-};
-
-export const SecurePassAddress = "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0";
-
-export const SecurePassABI = secureAppJSON.abi;
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ];

@@ -9,6 +9,8 @@ import Card from "react-bootstrap/Card";
 import LoginModal from "./LoginModal";
 import RegisterModal from "./RegisterModal";
 
+
+
 const CardComponent = ({ title, subtitle, text }) => {
   return (
     <div>
@@ -24,11 +26,17 @@ const CardComponent = ({ title, subtitle, text }) => {
 };
 
 const Landing = () => {
-  const { title } = React.useContext(SecureAppContext);
+  const [isInstalled, setIsInstalled] = React.useState(false); 
+
+  React.useEffect(() => {
+    setIsInstalled(Boolean(window.ethereum && window.ethereum.isMetaMask))
+  }, [])
+
 
   const [loginModal, setLoginModal] = React.useState(false);
   const [registerModal, setRegisterModal] = React.useState(false);
 
+  const { account, fetchData } = React.useContext(SecureAppContext);
   return (
     <div>
       <LoginModal show={loginModal} setShow={setLoginModal} />
@@ -47,25 +55,22 @@ const Landing = () => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                       <Nav className="me-auto">
-                        <Nav.Link style={{ color: "white" }}>
+                        {isInstalled ? <Nav.Link style={{ color: "white" }}>
+                          <p
+                            onClick={fetchData}
+                            className="auth-opts-btn"
+                          >
+                            Connect Wallet
+                          </p>
+                        </Nav.Link>: <Nav.Link style={{ color: "white" }}>
                           <p
                             onClick={() => setLoginModal(true)}
                             className="auth-opts-btn"
                           >
-                            Login
+                            Install Metamask
                           </p>
-                        </Nav.Link>
-                        <Nav.Link
-                          style={{ color: "white" }}
-                          className="auth-opts-btn"
-                        >
-                          <p
-                            className="auth-opts-btn"
-                            onClick={() => setRegisterModal(true)}
-                          >
-                            Sign Up
-                          </p>
-                        </Nav.Link>
+                        </Nav.Link>}
+                        
                       </Nav>
                     </Navbar.Collapse>
                   </Navbar>
@@ -90,6 +95,7 @@ const Landing = () => {
                     Today, we are using several services. And memorizing them is
                     a hefty challege. The solution is SecurePass, the latest
                     password manager.
+                    {account}
                   </h5>
                 </div>
               </Col>

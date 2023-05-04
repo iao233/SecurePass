@@ -21,12 +21,6 @@ const LoginModal = ({ show, setShow }) => {
     setShowPassword(!showPassword);
   }
 
-  useEffect(() => {
-    console.log("====================================");
-    console.log(loginInput);
-    console.log("====================================");
-  }, [loginInput]);
-
   return (
     <Modal show={show} onHide={() => setShow(false)}>
       <Modal.Header closeButton>
